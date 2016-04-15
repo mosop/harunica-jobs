@@ -34,12 +34,7 @@ end
 
 namespace :video do
   task :fetch_past do
-    Harunica::Video.delete_all period: 'past'
     Harunica::Video.fetch 'past'
-  end
-
-  task :clear_new do
-    Harunica::Video.delete_all period: 'new'
   end
 end
 
@@ -59,5 +54,6 @@ namespace :jobs do
   end
 end
 
-namespace :test do
+task :tweeted_videos do
+  puts Harunica::Video.where("tweeted_at is not null").all.map{|i| i.video_id}.to_s
 end

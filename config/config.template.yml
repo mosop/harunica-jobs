@@ -1,0 +1,22 @@
+new_mylist_ids:
+- '8467212'
+past_mylist_ids:
+- '23565930'
+- '23565909'
+twitter:
+# production の場合、以下の heroku の環境変数を設定する
+#   HARUNICA_TWITTER_CONSUMER_KEY
+#   HARUNICA_TWITTER_CONSUMER_SECRET
+#   HARUNICA_TWITTER_ACCESS_TOKEN
+#   HAURNICA_TWITTER_ACCESS_TOKEN_SECRET
+  consumer_key:
+  consumer_secret:
+  access_token:
+  access_token_secret:
+notices:
+- tweet_text: "【告知】春ニカ祭XXXX 今年も開催します！楽曲応募期間は3/5(啓蟄)から4/4(晴明)まで。詳細はニコニコ大百科をご覧ください→ nico.ms/dic/5398366 #test"
+  started_at: 2016-02-01 00:00:00 +09:00
+  ended_at: 2016-04-04 00:00:00 +09:00
+- tweet_text: "【春ニカ祭XXXX開催中】 春ニカ祭への楽曲応募は4/4（清明）まで。ハッシュタグ→ #test ニコニコ動画のタグは「春ニカ祭XXXX」 みんなでエレクトロニカを楽しみましょう！"
+  started_at: 2016-02-01 00:00:00 +09:00
+  ended_at: 2016-04-04 00:00:00 +09:00
