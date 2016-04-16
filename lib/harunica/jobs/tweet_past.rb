@@ -13,13 +13,13 @@ module Harunica
       def self.enqueue
         now = Time.now.getlocal('+09:00')
         run_at = nil
-        [8, 14, 20].each do |h|
+        [2, 8, 14, 20].each do |h|
           if now < now.change(hour: h)
             run_at = now.change(hour: h)
             break
           end
         end
-        run_at ||= now.change(hour: 8) + 1.day
+        run_at ||= now.change(hour: 2) + 1.day
         Delayed::Job.enqueue self.new, run_at: run_at
       end
     end
