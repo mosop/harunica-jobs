@@ -29,8 +29,8 @@ namespace :twitter do
   end
 end
 
-namespace :video do
-  task :fetch_past do
+namespace :fetch do
+  task :past do
     Harunica::Video.fetch 'past'
   end
 end
