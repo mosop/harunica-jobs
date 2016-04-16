@@ -24,7 +24,7 @@ module Harunica
     if env == 'production'
       h = config['twitter'] = {}
       %w[consumer_key consumer_secret access_token access_token_secret].each do |k|
-        h[name] = ENV["HARUNICA_TWITTER_#{k.upcase}"]
+        h[k] = ENV["HARUNICA_TWITTER_#{k.upcase}"]
       end
     end
   end
