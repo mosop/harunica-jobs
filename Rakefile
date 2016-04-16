@@ -1,8 +1,5 @@
 $:.unshift(__dir__ + '/lib')
 require_relative 'config/config'
-require 'delayed/tasks'
-
-task :environment
 
 namespace :db do
   task :migrate do
