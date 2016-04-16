@@ -7,9 +7,7 @@ require 'active_support/core_ext/time/calculations'
 require 'yaml'
 
 db_config = if Harunica.env == 'production'
-  {
-    url: ENV['CLEARDB_DATABASE_URL'].sub(/^mysql/, 'mysql2')
-  }
+  ENV['CLEARDB_DATABASE_URL'].sub(/^mysql/, 'mysql2')
 else
   {
     adapter: 'sqlite3',
