@@ -5,7 +5,7 @@ gem 'twitter', '5.16.0'
 gem 'delayed_job_active_record', '4.1.0'
 gem "activesupport", '4.2.5.1'
 
-group :prodcution do
+group :production do
   gem 'mysql2', '0.4.3'
 end
 
