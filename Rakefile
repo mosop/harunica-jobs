@@ -64,6 +64,13 @@ task :past_to_year do
   end
 end
 
+task :new_to_year do
+  Harunica::Video.where(period: 'new').all.each do |v|
+    v.period = 2016
+    v.save!
+  end
+end
+
 task :mark_unavailable do
   a = File.read("#{__dir__}/config/unavailable_videos.#{Harunica.env}").strip.split("\n")
   a.each do |vid|
