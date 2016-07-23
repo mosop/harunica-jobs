@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 ruby "2.3.1"
 
+gem 'rake'
 gem 'twitter', '5.16.0'
 gem 'delayed_job_active_record', '4.1.1'
 gem 'activesupport', '5.0.0'
