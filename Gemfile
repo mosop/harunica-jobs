@@ -7,7 +7,7 @@ gem 'delayed_job_active_record', '4.1.1'
 gem 'activesupport', '5.0.0'
 
 group :production do
-  gem 'mysql2', '0.4.3'
+  gem 'mysql2', '0.4.4'
 end
 
 group :development do
