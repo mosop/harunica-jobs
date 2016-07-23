@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "2.2.4"
+ruby "2.3.1"
 
 gem 'twitter', '5.16.0'
 gem 'delayed_job_active_record', '4.1.0'
