@@ -1,6 +1,7 @@
-new_mylist_ids:
+period: 2016
+mylist_ids_in_2016:
 - '8467212'
-past_mylist_ids:
+mylist_ids_in_past:
 - '23565930'
 - '23565909'
 twitter:

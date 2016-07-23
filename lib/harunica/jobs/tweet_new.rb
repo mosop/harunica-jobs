@@ -2,9 +2,9 @@ module Harunica
   module Jobs
     class TweetNew
       def perform
-        Harunica::Video.fetch 'new'
+        Harunica::Video.fetch Harunica.period
         now = Time.now
-        Harunica::Video.where(period: 'new', tweeted_at: nil).each do |v|
+        Harunica::Video.where(unavailable: false, period: Harunica.period, tweeted: false).each do |v|
           Delayed::Job.enqueue Harunica::Jobs::TweetVideo.new(v.id), run_at: now
           now += 90
         end

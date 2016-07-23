@@ -36,4 +36,8 @@ module Harunica
       end
     end
   end
+
+  def self.period
+    config['period']
+  end
 end

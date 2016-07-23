@@ -1,1 +1,4 @@
 /config/development.yml
+/config/unavailable_videos.development
+/db/development.sqlite3
+/.bundle

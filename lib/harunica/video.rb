@@ -47,33 +47,28 @@ module Harunica
 
     def twitter_message
       @twitter_message ||= begin
-        a = case period
-        when 'new'
-          ["【春ニカ祭2016新着紹介】 ", " #{url_for_tweet} #{twitter_tags}"]
-        when 'past'
-          ["【春ニカ過去曲紹介】春ニカ祭#{published_at.year}の参加曲より ", " #{url_for_tweet} #{twitter_tags}"]
+        a = if period == Harunica.period.to_s
+          ["【春ニカ祭#{period}新着紹介】 ", " #{url_for_tweet} #{twitter_tags}"]
+        else
+          ["【春ニカ過去曲紹介】春ニカ祭#{period}の参加曲より ", " #{url_for_tweet} #{twitter_tags}"]
         end
         a[0] + shorten_title(140 - (a[0].size + a[1].size)) + a[1]
       end
     end
 
     def tweet!
+      return if tweeted? || unavailable?
       Harunica.twitter.update twitter_message
       self.tweeted_at = Time.now
+      self.tweeted = true
       save!
     end
 
-    def tweeted?
-      !!tweeted_at
-    end
-
     def self.fetch(period)
-      tweeted = Harunica.config['tweeted_videos'] || []
-      Harunica.config["#{period}_mylist_ids"].each do |list_id|
+      (Harunica.config["mylist_ids_in_#{period}"] || []).each do |list_id|
         list = Harunica::Mylist.new(list_id)
         list.videos.each do |v|
-          if Harunica::Video.where(video_id: v.video_id, period: period).count == 0
-            v.tweeted_at = Time.now if tweeted.include?(v.video_id)
+          if Harunica::Video.where(video_id: v.video_id).count == 0
             v.period = period
             v.save!
           end

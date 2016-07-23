@@ -2,7 +2,11 @@ module Harunica
   module Jobs
     class TweetPast
       def perform
-        vs = Harunica::Video.where(period: 'past', tweeted_at: nil).all
+        vs = Harunica::Video.where(unavailable: false).where.not(period: Harunica.period).where(tweeted: false).all
+        if vs.size == 0
+          Harunica::Video.where(unavailable: false).where.not(period: Harunica.period).update tweeted: false
+          vs = Harunica::Video.where(unavailable: false).where.not(period: Harunica.period).where(tweeted: false).all
+        end
         if vs.size > 0
           v = vs[rand(0...vs.size)]
           v.tweet!
